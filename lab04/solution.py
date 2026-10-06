@@ -13,6 +13,16 @@ def average(s):
     if k > 0:
         t=summ/k
     return float(f'{t:.2f}')
+def ranking(n, s):
+    ans=[]
+    ss=sorted(s)
+    for i in range(0,3):
+        for l in s:
+            if ss[i] == l:
+                ans.append(n[i])
+                break
+    an=ans[::-1]
+    return an
 def above_average(n, s):
     sr = average(s)
     ans=''
@@ -20,3 +30,7 @@ def above_average(n, s):
         if s[i]>sr:
             ans+=f'{n[i]}  '
     return ans
+print(winner(names, scores))
+print(average(scores))
+print(ranking(names, scores))
+print(above_average(names, scores))
