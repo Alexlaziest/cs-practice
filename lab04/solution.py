@@ -12,4 +12,11 @@ def average(s):
     k=len(s)
     if k > 0:
         t=summ/k
-    return f'{t:.2f}'
+    return float(f'{t:.2f}')
+def above_average(n, s):
+    sr = average(s)
+    ans=''
+    for i in range(0,3):
+        if s[i]>sr:
+            ans+=f'{n[i]}  '
+    return ans
