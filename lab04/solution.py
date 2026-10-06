@@ -6,3 +6,10 @@ def winner(n, s):
         if s[i] > s[i-1]:
             t = i
     return n[t]
+def average(s):
+    t=0.0
+    summ=sum(s)
+    k=len(s)
+    if k > 0:
+        t=summ/k
+    return f'{t:.2f}'
