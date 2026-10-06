@@ -4,7 +4,7 @@ er=0
 verh=0
 summ=0
 k=0
-maxx=-1000
+maxx=-float("inf")
 for i in range(n):
     t=input()
     if t == "error":
@@ -21,6 +21,7 @@ print(n)
 print(er)
 print(verh)
 print(f'{maxx:.1f}')
-print(f'{summ/k:.1f}')
-
-
+if k != 0:
+    print(f'{summ/k:.1f}')
+else:
+    print('Ошибка')
