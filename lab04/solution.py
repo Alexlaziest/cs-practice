@@ -14,3 +14,9 @@ def winner(n, s):
 def average(s):
     if len(s)==0: return 0.0
     return round(sum(s)/len(s), 2)
+
+def ranking(n,s):
+    lis = [[nam, num]  for nam, num in zip(n, s)]
+    lis = sorted(lis, key= lambda p: p[1], reverse= True)
+    return [i[0]  for i in lis]
+
