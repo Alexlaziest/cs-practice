@@ -1,5 +1,5 @@
 def winner(names, scores):
-    maxx=0
+    maxx=-10000
     maxid=0
     if len(scores)==0: return 'no one'
     for i in range(0 , len(scores)):
