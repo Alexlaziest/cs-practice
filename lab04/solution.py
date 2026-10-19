@@ -1,36 +1,16 @@
 names =  ["Аня", "Боря", "Вика"]
 scores = [7.0,   9.0,    9.0]
+
 def winner(n, s):
-    t = 0
-    for i in range(1,3):
-        if s[i] > s[i-1]:
-            t = i
-    return n[t]
+    maxx=0
+    maxid=0
+    if len(s)==0: return 'no one'
+    for i in range(0 , len(s)):
+        if maxx<s[i]:
+            maxx=s[i]
+            maxid=i
+    return n[maxid]
+
 def average(s):
-    t=0.0
-    summ=sum(s)
-    k=len(s)
-    if k > 0:
-        t=summ/k
-    return float(f'{t:.2f}')
-def ranking(n, s):
-    ans=[]
-    ss=sorted(s)
-    for i in range(0,3):
-        for l in s:
-            if ss[i] == l:
-                ans.append(n[i])
-                break
-    an=ans[::-1]
-    return an
-def above_average(n, s):
-    sr = average(s)
-    ans=''
-    for i in range(0,3):
-        if s[i]>sr:
-            ans+=f'{n[i]}  '
-    return ans
-print(winner(names, scores))
-print(average(scores))
-print(ranking(names, scores))
-print(above_average(names, scores))
+    if len(s)==0: return 0.0
+    return round(sum(s)/len(s), 2)
