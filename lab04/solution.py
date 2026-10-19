@@ -1,6 +1,3 @@
-names =  ["Аня", "Боря", "Вика"]
-scores = [7.0,   9.0,    9.0]
-
 def winner(n, s):
     maxx=0
     maxid=0
@@ -20,3 +17,10 @@ def ranking(n,s):
     lis = sorted(lis, key= lambda p: p[1], reverse= True)
     return [i[0]  for i in lis]
 
+def above_average(n,s):
+    lis = [[nam, num]  for nam, num in zip(n, s)]
+    return [i[0] for i in lis if i[1]> average(s)]
+print(winner(names, scores))
+print(average(scores))
+print(ranking(names, scores))
+print(above_average(names, scores))
