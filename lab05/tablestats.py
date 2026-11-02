@@ -18,4 +18,20 @@ def count_types(rows):
         a[row["тип"]] = a.get(row["тип"], 0)+ 1
     return a
 
+def total_minutes(rows, kind):
+    ans=0.0
+    for row in rows:
+        if row["тип"] == kind:
+            zn=row["минуты"].replace(",", ".")
+            try:
+                zn=float(zn)
+            except ValueError:
+                continue
+            ans+=zn
+    return round(ans, 1)
 
+def to_csv(counts):
+    a="тип,количество\n"
+    for c in sorted(counts):
+        a+=(f"{c},{counts[c]}\n")
+    return a
