@@ -3,17 +3,27 @@ import numpy as np
 def reshape_rows(values, width):
     if len(values)%width != 0:
         return []
-    a = np.array(values)
+    a = np.array(values, dtype=float)
     return a.reshape(-1, width).tolist()
 
 def block(matrix, rows, columns):
-    a = np.array(matrix)
+    if len(matrix) == 0:
+        return []
+    a = np.array(matrix, dtype=float)
     return a[np.ix_(rows, columns)].tolist()
 
 
+def column_means(matrix):
+    if len(matrix) == 0:
+        return []
+    a = np.array(matrix, dtype=float)
+    return np.round(a.mean(axis=0), 6).tolist()
+
+def column_range(matrix, column):
+    if len(matrix) == 0:
+        return 0.0
+    a = np.array(matrix, dtype=float)
+    b= a[:, column]
+    return float(np.round((b.max() - b.min()), 6))
 
 
-
-
-
-# print(block([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [0, 2], [1, 2]))
