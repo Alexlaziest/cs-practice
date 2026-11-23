@@ -7,8 +7,8 @@ def make_hours():
 def vector_report(values):
     ar=np.asarray(values)
     return {
-    "third": ar[2],
-    "last": ar[-1],
+    "third": float(ar[2]),
+    "last": float(ar[-1]),
     "middle": ar[2:6].tolist(),
     "every_second": ar[::2].tolist(),
     "reversed": ar[::-1].tolist()}
