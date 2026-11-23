@@ -46,4 +46,32 @@ print(matrix[1:4, 2:5].shape)
 print(matrix[-2:, -2:])
 print(matrix[-2:, -2:].shape)
 
+vector = np.array([10, 20, 30, 40, 50])
+vector[1:4] = 0
 
+small_matrix = np.arange(1, 10).reshape(3, 3)
+small_matrix[0, :] = -1
+small_matrix[1:, 1:] = 9
+
+changed_hours = hours.copy()
+changed_hours[2:5]=99
+changed_hours[::2]=-1
+print("Изменённый:", changed_hours)
+print("Исходный:", hours)
+# copy() нужна, чтобы не изменять исходный hours
+
+changed_matrix = matrix.copy()
+changed_matrix[1,:]=0
+changed_matrix[:,-1]=-1
+changed_matrix[1:4,1:4]=100
+print("Изменённый:", changed_matrix)
+print("Исходный:", matrix)
+
+numbers=np.arange(12)
+table=numbers.reshape(3,4)
+transposed=table.T
+print(numbers.shape)
+print(table.shape)
+print(transposed.shape)
+
+# reshape(5,3) вызовет ошибку потому чтоо 5*3 != numbers.size
