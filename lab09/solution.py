@@ -17,4 +17,14 @@ def change_vector(values):
     ar=np.asarray(values).copy()
     ar[2:5]=99
     ar[::2]=-1
-    return ar.tolist
+    return ar.tolist()
+
+def cap_above(values, limit):
+    ar=np.asarray(values).copy()
+    ar[ar > limit]= limit
+    return ar.tolist()
+
+def celsius_to_fahrenheit(values):
+    ar=np.asarray(values)
+    ar= ar * 9 / 5 + 32
+    return ar.tolist()
